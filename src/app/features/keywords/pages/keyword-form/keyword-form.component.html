@@ -1,0 +1,25 @@
+<h2>{{id ? 'Editar' : 'Novo'}} Keyword</h2>
+
+<form [formGroup]="form">
+  <div style="margin-bottom:16px;">
+    <mat-form-field appearance="outline" style="margin-right:8px; width:200px;">
+      <mat-label>UF</mat-label>
+      <input matInput formControlName="uf">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="margin-right:8px; width:200px;">
+      <mat-label>Palavra</mat-label>
+      <input matInput formControlName="word">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="margin-right:8px; width:200px;">
+      <mat-label>Sub Palavras (separadas por vírgula)</mat-label>
+      <input matInput formControlName="subWords">
+    </mat-form-field>
+  </div>
+
+  <div style="margin-top:16px;">
+    <button mat-raised-button (click)="save()" class="button-success">Salvar</button>
+    <button mat-button (click)="cancel()" class="button-error" style="margin-left:8px;">Cancelar</button>
+  </div>
+</form>

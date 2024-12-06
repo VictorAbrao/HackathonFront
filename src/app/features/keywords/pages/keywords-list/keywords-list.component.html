@@ -1,0 +1,47 @@
+<h2>Listagem de Keywords</h2>
+<div style="margin-bottom:16px;">
+  <mat-form-field style="margin-right:8px; width:200px;" appearance="outline">
+    <mat-label>UF</mat-label>
+    <input matInput [formControl]="ufFilter" (keyup.enter)="loadKeywords()">
+  </mat-form-field>
+
+  <mat-form-field style="margin-right:8px; width:200px;" appearance="outline">
+    <mat-label>Palavra</mat-label>
+    <input matInput [formControl]="wordFilter" (keyup.enter)="loadKeywords()">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" class="button-success" style="margin-right:8px;" (click)="loadKeywords()">Buscar</button>
+  <button mat-raised-button color="accent" class="button-primary" routerLink="/keywords/new">Novo</button>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let row">{{row.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="word">
+    <th mat-header-cell *matHeaderCellDef>Palavra</th>
+    <td mat-cell *matCellDef="let row">{{row.word}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="uf">
+    <th mat-header-cell *matHeaderCellDef>UF</th>
+    <td mat-cell *matCellDef="let row">{{row.uf}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Ações</th>
+    <td mat-cell *matCellDef="let row">
+      <button mat-icon-button color="primary" (click)="editKeyword(row)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteKeyword(row)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

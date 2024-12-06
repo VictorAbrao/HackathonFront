@@ -1,0 +1,9 @@
+<h2>Aprovar/Reprovar Concierge</h2>
+<h3>{{data.title}}</h3>
+<div [innerHTML]="formattedBody"></div>
+
+<div style="text-align:right; margin-top:16px;">
+  <button mat-button (click)="close()">Fechar</button>
+  <button mat-raised-button color="primary" (click)="approve()">Aprovar</button>
+  <button mat-raised-button color="warn" (click)="deny()">Reprovar</button>
+</div>
